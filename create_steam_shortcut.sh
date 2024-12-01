@@ -1,11 +1,21 @@
 # Loop through installed games and display options by `Name (ID)`
 ENTRY_DIR=~/.var/app/com.valvesoftware.Steam/.local/share/applications
+GAMES=()
 for f in $ENTRY_DIR/*.desktop; do
 	NAME=$(grep 'Name=' "$f" | cut -d\= -f2)
 	EXEC=$(grep 'Exec=' "$f" | cut -d\= -f2)
-	echo "$NAME (${EXEC##*/})"	
+	GAMES+=("$NAME (${EXEC##*/})")
 done
-echo "Enter a Game ID..."; read ID
+
+echo "Choose an ID："
+select GAME in "${GAMES[@]}"; do
+    if [[ -n "$GAME" ]]; then
+        ID=$(echo "$GAME" | grep -oP '\(([^)]+)\)' | tr -d '()')
+        break
+    else
+        echo "Invalid selection please try again"
+    fi
+done
 
 # Find and store the selected file in memory
 for f in $ENTRY_DIR/*.desktop; do
