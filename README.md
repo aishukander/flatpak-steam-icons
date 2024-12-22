@@ -1,4 +1,9 @@
 # flatpak-steam-icons
+
+====================
+The only thing I did was to make theID It just becomes a selection mark.
+====================
+
 Simple shell script to extract desktop icons from Flatpak directory and build functional icons on the Desktop.
 
 The script will provide a list of games with generated icons alongside their corresponding `ID`. 
