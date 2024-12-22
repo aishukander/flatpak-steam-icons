@@ -1,7 +1,7 @@
 # flatpak-steam-icons
 
 -------------------------
-The only thing I did was to make theID It just becomes a selection mark.
+The only thing I did was get the ID to go from a manual entry to an option.
 -------------------------
 
 Simple shell script to extract desktop icons from Flatpak directory and build functional icons on the Desktop.
